@@ -1,4 +1,4 @@
-const blackList = [100, 1, 99, 0];
+const blackList = [100, 99, 98, 1, 0];
 const randomGen = () => {
     let random;
     do {

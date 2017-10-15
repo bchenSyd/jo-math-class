@@ -13,7 +13,7 @@ const RouteNavigator = StackNavigator({
   Index: {
     screen: IndexNavigator, // TabNavigatorScreen
     navigationOptions: {
-      title: `Joanna't Math Class`,
+      title: `Joanna's Math Class`,
     },
   },
   QuizDetails: { screen: QuizScreen }
