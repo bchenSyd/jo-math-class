@@ -1,4 +1,3 @@
-//@flow
 import React from 'react';
 import {
   Platform,
@@ -10,22 +9,11 @@ import {
 } from 'react-native';
 import callAPI from '../common/callAPI';
 
-type CarModel = {
-  id: number;
-  name: string;
-  makeId: number;
-  makeName: string;
-  imageUrl: string;
-  price: number;
-}
 
-class CarDetailsScreen extends React.Component {
+class QuizDetailsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Car Details',
+    title: 'start quiz',
   };
-  state: {
-    model: CarModel | null;
-  }
   constructor() {
     super();
     this.state = {
@@ -113,4 +101,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default CarDetailsScreen;
+export default QuizDetailsScreen;

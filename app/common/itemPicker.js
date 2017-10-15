@@ -1,5 +1,3 @@
-// @flow
-
 import React, { PropTypes } from 'react'
 import {
     StyleSheet,
@@ -7,16 +5,9 @@ import {
     Text,
     Picker,
 } from 'react-native';
-import type { SelectionItem } from './types';
 
-type Props = {
-    itemLabel: string;
-    selectedValue: number;
-    options: SelectionItem[];
-    onSelectionChange: (selectedVal: number) => void;
-}
 
-const ItemPicker = ({ itemLabel, selectedValue, options, onSelectionChange }: Props) => {
+const ItemPicker = ({ itemLabel, selectedValue, options, onSelectionChange }) => {
     return (
         <View style={styles.base}>
             <Text style={styles.label}>{itemLabel}</Text>

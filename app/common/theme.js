@@ -1,5 +1,3 @@
-// @flow
-
 // color
 const color = {
     blue: '#0091EA',

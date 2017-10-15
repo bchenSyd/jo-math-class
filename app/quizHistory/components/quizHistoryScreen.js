@@ -1,4 +1,3 @@
-// @flow
 import {
     View,
     Button,
@@ -8,13 +7,7 @@ import {
 } from 'react-native';
 import React, {Component} from 'react';
 
-
-type Props = {
-    isFetching: boolean;
-    carOfTheWeek: { review: string };
-
-}
-const HomeScreen = (props: Props) => {
+const QuizHistoryScreen = (props) => {
     const { isFetching, carOfTheWeek } = props;
     const review = carOfTheWeek ? carOfTheWeek.review : ''
     return <View style={styles.main} >
@@ -42,4 +35,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HomeScreen;
+export default QuizHistoryScreen;

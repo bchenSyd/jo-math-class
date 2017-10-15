@@ -1,9 +1,4 @@
 {
-    "javascript.validate.enable": false,
-    "javascript.nameSuggestions": false,
-    "flow.enabled": true,
-    "flow.pathToFlow": "./node_modules/flow-bin",
-    "flow.useNPMPackagedFlow": true,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,

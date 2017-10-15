@@ -1,12 +1,6 @@
-// @flow
-const API_HOST = 'http://quantas-api.azurewebsites.net/api';
+const API_HOST = 'http://localhost:3001';
 
-type fetchOptions = {
-    headers: any,
-    body: any,
-    method: string
-}
-export default function callAPI(endpoint: string, options?: fetchOptions): Promise<any> {
+export default function callAPI(endpoint, options) {
     const fullUrl = (endpoint.indexOf(API_HOST) === -1) ? API_HOST + endpoint : endpoint;
     const defaultOptions = {
         method: 'get',

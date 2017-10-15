@@ -1,7 +1,4 @@
-//@flow
 import React from 'react';
-import configStore from './store/configureStore';
-import { Provider } from 'react-redux';
 import {
   View,
   Text,
@@ -10,7 +7,7 @@ import {
 
 import {StackNavigator} from 'react-navigation';
 import IndexNavigator from './indexRoute';
-import CarDetailsScreen from './carDetails/carDetailsScreen';
+import QuizScreen from './quizDetails/quizScreen';
 import PlaygroundScreen from './playground';
 import AnimationScreen from './playground/animation';
 
@@ -18,21 +15,20 @@ const RouteNavigator = StackNavigator({
   Index: {
     screen: IndexNavigator, //TabNavigatorScreen
     navigationOptions: {
-      title: 'Car Catalog',
+      title: `Joanna't Math Class`,
     },
   },
-  CarDetails: {screen: CarDetailsScreen},
+  QuizDetails: {screen: QuizScreen},
+
+  
   Playground: {screen: PlaygroundScreen},
   Animation: {screen: AnimationScreen}
 });
 
 
-class SimpleApp extends React.Component{
-  store = configStore();
+class MainApp extends React.Component{
   render(){
-      return <Provider store={this.store}>
-                <RouteNavigator />
-          </Provider>
+      return <RouteNavigator />
   }
 }
-export default SimpleApp;
+export default MainApp;

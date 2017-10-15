@@ -1,13 +1,12 @@
-//@flow
 import React from 'react';
 import { TabNavigator } from "react-navigation";
-import HomeContainer from './home';
-import SearchContainer from './search';
 
+import NewQuizContainer from './newQuiz';
+import QuizHistoryContainer from './quizHistory';
 
 const IndexNavigator = TabNavigator({
-    Home: { screen: HomeContainer },
-    Search: { screen: SearchContainer }
+    NewQuiz: { screen: NewQuizContainer },
+    QuizHistory: { screen: QuizHistoryContainer },
 });
 
 export default IndexNavigator;

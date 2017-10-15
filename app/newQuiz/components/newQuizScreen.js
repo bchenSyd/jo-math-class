@@ -1,4 +1,3 @@
-//@flow
 import React, { Component } from 'react';
 import {
     View,
@@ -10,20 +9,11 @@ import {
 } from 'react-native';
 import ItemPicker from '../../common/itemPicker';
 import { color, fontSize } from '../../common/theme';
-import type {SelectionItem } from '../../common/types';
 
-type Props = {
-    go2CarDetails: (model: number) => void;
-    makeList: SelectionItem[];
-    modelList: SelectionItem[];
-    selectedMake: number,
-    selectedModel: number,
-    searchButtonEnabled: boolean;
-    onSelectionChange: (type: string, newSelection: number) => void;
-}
-class SearchScreen extends Component<any, Props, any>{
 
-    _onSelectionChange = (type: string) => (newVal: number) => {
+class SearchScreen extends Component{
+
+    _onSelectionChange = type => newVal => {
         const { onSelectionChange } = this.props;
         onSelectionChange(type, newVal);
     }

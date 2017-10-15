@@ -1,4 +1,3 @@
-// @flow
 import {
     StyleSheet,
     View,
@@ -16,8 +15,6 @@ class AnimationScreen extends Component {
         title: 'React-Native Animation Sample',
     };
 
-
-    spinValue: any;
     constructor() {
         super();
         // create an instance variable spinValue

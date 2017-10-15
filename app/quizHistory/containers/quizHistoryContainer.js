@@ -1,5 +1,4 @@
-//@flow
-import React from 'react';
+import React, { Component } from 'react';
 import {
     View,
     Button,
@@ -8,48 +7,22 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import { color, fontSize } from '../../common/theme';
-import { connect } from 'react-redux';
-import { getCarOfTheWeek } from '../actions';
-import type {
-    Navigation
-} from 'react-navigation';
-import Splash from 'react-native-smart-splash-screen';
-import HomeScreen from '../components/homeScreen';
 
-type Props = {
-    carOfTheWeek: {
-        review: string;
-    };
-    getCarOfTheWeek: () => void;
-    isFetching: boolean;
-    navigation: Navigation;
-}
-class HomeContainer extends React.Component<any, Props, any> {
-    componentDidMount() {
-        // This is the actual image splash screen, not the animated one.
-        if (Splash) {
-            Splash.close({
-                animationType: Splash.animationType.fade,
-                duration: 300,
-                delay: 200,
-            });
-        }
-        const { carOfTheWeek, getCarOfTheWeek } = this.props;
-        if (!carOfTheWeek) {
-            // the whole point of using redux to store carOfTheWeek is that, 
-            // once you fetched it before, it's stored in store so that next time
-            // page is mounted (navi back), you don't have to fetch it again
-            getCarOfTheWeek();
-        }
+import QuizHistoryScreen from '../components/quizHistoryScreen';
+
+
+class QuizHistoryContainer extends Component {
+    static navigationOptions  = {
+        tabBarLabel:'My Quiz',
     }
-
+    componentDidMount() {
+        //todo: fetch quiz history;
+    }
     render() {
         const { navigation: { navigate }, isFetching, carOfTheWeek } = this.props;
         const review = carOfTheWeek ? carOfTheWeek.review : ''
         return <View style={styles.main}>
-
-
-            <HomeScreen style={styles.content}
+            <QuizHistoryScreen style={styles.content}
                 isFetching={isFetching}
                 carOfTheWeek={carOfTheWeek} />
 
@@ -93,15 +66,4 @@ const styles = StyleSheet.create({
 
 
 
-export default connect(
-    state => ({
-        isFetching: state.home.isFetching,
-        carOfTheWeek: state.home.carOfTheWeek
-    }),
-    {
-        getCarOfTheWeek
-    }
-)(HomeContainer);
-export {
-    HomeContainer
-}
+export default QuizHistoryContainer;
