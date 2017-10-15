@@ -1,21 +1,16 @@
-## how to use `flow-typed`?
-
-```
-yarn add --dev flow-typed
-
-yarn run flow-typed -- install jest@^20
-
-```
-## how does it work?
-pretty much the same as `typings` or `definitely-typed` in typescript.
-
-https://flow.org/en/docs/libdefs/#toc-what-s-a-library-definition
->NOTE: Using the /flow-typed directory for libdefs is a convention that enables Flow to JustWork™ out of the box and encourages consistency across projects that use Flow, but it is also possible to explicitly configure Flow to look elsewhere for libdefs using the [libs] section of your .flowconfig.
-
-
 ## react-native
 1. build apk
-`$ cd android && ./gradlew assembleRelease`
+ * place `bo-chen.keystore` under `android\app\bo-chen.keystore`
+ * touch ~/.gradle/gradle.properties
+ * edit with 
+   ```
+    MYAPP_RELEASE_STORE_FILE=bo-chen.keystore
+    MYAPP_RELEASE_KEY_ALIAS=bo-keystore
+    MYAPP_RELEASE_STORE_PASSWORD=123456
+    MYAPP_RELEASE_KEY_PASSWORD=123456
+   ```
+ * `$ cd android && ./gradlew assembleRelease`
+
 The generated APK can be found under  `android/app/build/outputs/apk/app-release.apk`, and is ready to be distributed.
 2. start gradlew
 ```

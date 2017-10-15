@@ -6,7 +6,7 @@
 		"start": "node node_modules/react-native/local-cli/cli.js  run-android",
 		"start-release": "node node_modules/react-native/local-cli/cli.js  run-android --variant=release",
 		"start-bundler": "node node_modules/react-native/local-cli/cli.js start",
-		"build-apk": "cd android && ./gradlew assembleRelease && cp android/app/build/outputs/apk/app-release.apk ./apk-release/",
+		"build-apk": "npm run clean && cd android && ./gradlew assembleRelease && cp ./android/app/build/outputs/apk/app-release.apk ./apk-release/",
 		"clean": "rimraf android/app/build",
 		"lint": "eslint --color --fix .",
 		"test": "jest",
