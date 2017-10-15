@@ -20,10 +20,6 @@ class NewQuizContainer extends Component {
         super();
         this.state = {
             curriculumList: [{
-                id: -1,
-                name: 'Please select a curriculum',
-            },
-            {
                 id: 0,
                 name: 'Math',
             },
@@ -33,10 +29,21 @@ class NewQuizContainer extends Component {
             }],
             selectedCurriculum: -1,
             levelList: [{
-                id: -1,
-                name: 'Select a curriculum first',
+                id: 0,
+                name: 'mixed',
             },
-            ],
+            {
+                id: 1,
+                name: 'easy',
+            },
+            {
+                id: 2,
+                name: 'medium',
+            },
+            {
+                id: 3,
+                name: 'difficult',
+            }],
             selectedLevel: -1,
 
             startQuizEnabled: false,
@@ -51,43 +58,14 @@ class NewQuizContainer extends Component {
     onSelectionChange = (type, newVal) => {
         if (type === 'curriculum') { // change curriculum
             const curriculumId = newVal;
-            if (curriculumId === -1) {
-                // user de-select curriculum;
-                this.setState({
-                    selectedcu: curriculumId,
-                    levelList: [{
-                        id: -1,
-                        name: 'Select a curriculum first',
-                    }],
-                    startQuizEnabled: false,
-                });
-            } else {
-                this.setState({
-                    selectedCurriculum: curriculumId,
-                    levelList: [
-                        {
-                            id: -1,
-                            name: 'Please select a level',
-                        }, {
-                            id: 0,
-                            name: 'easy',
-                        },
-                        {
-                            id: 1,
-                            name: 'medium',
-                        },
-                        {
-                            id: 2,
-                            name: 'mixed',
-                        }],
-                    startQuizEnabled: false,
-                });
-            }
+            this.setState({
+                selectedCurriculum: curriculumId,
+                selectedLevel:0, //mixed by defult;
+            });
         } else { // change level
             const levelId = newVal;
             this.setState({
                 selectedLevel: levelId,
-                startQuizEnabled: levelId !== -1,
             });
         }
     }
@@ -99,7 +77,6 @@ class NewQuizContainer extends Component {
             selectedCurriculum={selectedCurriculum}
             selectedLevel={selectedLevel}
             onSelectionChange={this.onSelectionChange}
-            startQuizEnabled={startQuizEnabled}
             startAQuiz={this.startAQuiz} />;
     }
 }

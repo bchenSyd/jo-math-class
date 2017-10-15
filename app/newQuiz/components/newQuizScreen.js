@@ -3,9 +3,9 @@ import {
     View,
     Button,
     Text,
-    Picker,
     PixelRatio,
     StyleSheet,
+    TouchableOpacity
 } from 'react-native';
 import ItemPicker from '../../common/itemPicker';
 import { color, fontSize } from '../../common/theme';
@@ -18,11 +18,10 @@ class SearchScreen extends Component {
     }
 
     onStartQuicClicked = e => {
-
         this.props.startAQuiz();
     }
     render() {
-        const { curriculumList, levelList, selectedCurriculum, selectedLevel, startQuizEnabled } = this.props;
+        const { curriculumList, levelList, selectedCurriculum, selectedLevel } = this.props;
         return <View style={styles.base}>
             <View style={styles.content}>
                 <ItemPicker itemLabel='Curriculum' selectedValue={selectedCurriculum}
@@ -34,11 +33,9 @@ class SearchScreen extends Component {
                     options={levelList} />
             </View>
 
-            <Button
-                disabled={!startQuizEnabled}
-                onPress={this.onStartQuicClicked}
-                title="Start a Quiz"
-            />
+            <TouchableOpacity style={styles.touchable} onPress={this.onStartQuicClicked}>
+                <Text style={styles.touchableText} >Start a Quiz</Text>
+            </TouchableOpacity>
 
         </View>;
     }
@@ -52,8 +49,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'column',
         flex: 1, // same as 100%
-        alignItems: 'stretch',
-        marginBottom: 2,
+        alignItems: 'stretch'
     },
     content: {
         padding: fontSize.large,
@@ -68,6 +64,17 @@ const styles = StyleSheet.create({
         width: 120,
         marginLeft: 10,
     },
+    touchable: {
+        backgroundColor: color.blue,
+        marginTop: 10,
+        alignItems: 'center',
+    },
+    touchableText: {
+        color: 'white',
+        fontSize: fontSize.default,
+        fontWeight: '500',
+        padding: fontSize.large,
+    }
 });
 
 export default SearchScreen;

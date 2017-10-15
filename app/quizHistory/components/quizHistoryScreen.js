@@ -8,14 +8,13 @@ import {
 import React, { Component } from 'react';
 
 const QuizHistoryScreen = (props) => {
-    const { isFetching, carOfTheWeek } = props;
-    const review = carOfTheWeek ? carOfTheWeek.review : '';
+    const { isFetching } = props;
     return <View style={styles.main} >
-        <Text style={styles.title}>Car of the week</Text>
+        <Text style={styles.title}>Quiz History</Text>
         <View style={styles.content}>
             {
                 isFetching ? <Text>loading...</Text>
-                        : <Text>{review}</Text>
+                        : <Text>quiz details here</Text>
             }
         </View>
     </View>;
