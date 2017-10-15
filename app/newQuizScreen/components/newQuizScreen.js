@@ -34,7 +34,7 @@ class SearchScreen extends Component {
             </View>
 
             <TouchableOpacity style={styles.touchable} onPress={this.onStartQuicClicked}>
-                <Text style={styles.touchableText} >Start a Quiz</Text>
+                <Text style={styles.touchableText} >Start a New Quiz</Text>
             </TouchableOpacity>
 
         </View>;

@@ -4,7 +4,7 @@ import Splash from 'react-native-smart-splash-screen';
 
 class NewQuizContainer extends Component {
     static navigationOptions = {
-        tabBarLabel: 'Start a new Quiz',
+        tabBarLabel: 'Start a Quiz',
     }
     componentDidMount() {
         if (Splash) {
