@@ -27,7 +27,7 @@ class NewQuizContainer extends Component {
                 id: 1,
                 name: 'English',
             }],
-            selectedCurriculum: -1,
+            selectedCurriculum: 0,
             levelList: [{
                 id: 0,
                 name: 'mixed',
@@ -44,46 +44,55 @@ class NewQuizContainer extends Component {
                 id: 3,
                 name: 'difficult',
             }],
-            selectedLevel: -1,
-
-            startQuizEnabled: false,
+            selectedLevel: 0,
+            durationList: [{
+                id: 0,
+                name: '10 minutes',
+            },
+            {
+                id: 1,
+                name: '15 minutes',
+            },
+            {
+                id: 2,
+                name: '20 minutes',
+            },
+            {
+                id: 3,
+                name: '30 minutes',
+            }],
+            selectedDuration: 0,
         };
     }
 
-    startAQuiz = () => {
+    startNewQuiz = () => {
         const { navigate } = this.props.navigation;
-        const { selectedCurriculum, selectedLevel } = this.state;
+        const { selectedCurriculum, selectedLevel ,selectedDuration} = this.state;
         navigate('QuizDetails', {
             config: {
                 curriculum: selectedCurriculum,
-                level: selectedLevel
+                level: selectedLevel,
+                duration: selectedDuration,
             }
         });
     }
 
-    onSelectionChange = (type, newVal) => {
-        if (type === 'curriculum') { // change curriculum
-            const curriculumId = newVal;
-            this.setState({
-                selectedCurriculum: curriculumId,
-                selectedLevel: 0, //mixed by defult;
-            });
-        } else { // change level
-            const levelId = newVal;
-            this.setState({
-                selectedLevel: levelId,
-            });
-        }
+    onSelectionChange = (fieldName, fieldValue) => {
+        const newState = { ...this.state };
+        newState[fieldName] = fieldValue;
+        this.setState(newState);
     }
 
     render() {
-        const { curriculumList, levelList, selectedCurriculum, selectedLevel, startQuizEnabled } = this.state;
+        const { curriculumList, levelList, durationList, selectedCurriculum, selectedLevel, selectedDuration } = this.state;
         return <NewQuizScreen curriculumList={curriculumList}
             levelList={levelList}
+            durationList={durationList}
             selectedCurriculum={selectedCurriculum}
             selectedLevel={selectedLevel}
+            selectedDuration={selectedDuration}
             onSelectionChange={this.onSelectionChange}
-            startAQuiz={this.startAQuiz} />;
+            onStartQuizClicked={this.startNewQuiz} />;
     }
 }
 

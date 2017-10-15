@@ -16,14 +16,14 @@ class QuizDetailsScreen extends React.Component {
   };
 
   render() {
-    const { params } = this.props.navigation.state;
+    const { config:{ curriculum, level, duration} } = this.props.navigation.state.params;
     return (
       <View style={styles.main}>
         <View style={styles.title}>
           <Text style={styles.titleTxt}>Anwser the questions below</Text>
         </View>
         <View style={styles.content}>
-          <Text>content goes here</Text>
+          <Text>{ `${curriculum} - ${level} - ${duration}`}</Text>
         </View>
 
       </View>

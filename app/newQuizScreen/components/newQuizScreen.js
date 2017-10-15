@@ -12,28 +12,31 @@ import { color, fontSize } from '../../common/theme';
 
 
 class SearchScreen extends Component {
-    _onSelectionChange = type => (newVal) => {
+    _onSelectionChange = fieldName => fieldValue => {
         const { onSelectionChange } = this.props;
-        onSelectionChange(type, newVal);
+        onSelectionChange(fieldName, fieldValue);
     }
 
-    onStartQuicClicked = e => {
-        this.props.startAQuiz();
-    }
     render() {
-        const { curriculumList, levelList, selectedCurriculum, selectedLevel } = this.props;
+        const { curriculumList, levelList, durationList,
+            selectedCurriculum, selectedLevel, selectedDuration,
+            onStartQuizClicked } = this.props;
         return <View style={styles.base}>
             <View style={styles.content}>
                 <ItemPicker itemLabel='Curriculum' selectedValue={selectedCurriculum}
-                    onSelectionChange={this._onSelectionChange('curriculum')}
+                    onSelectionChange={this._onSelectionChange('selectedCurriculum')}
                     options={curriculumList} />
                 <ItemPicker itemLabel='Level'
                     selectedValue={selectedLevel}
-                    onSelectionChange={this._onSelectionChange('level')}
+                    onSelectionChange={this._onSelectionChange('selectedLevel')}
                     options={levelList} />
+                <ItemPicker itemLabel='Duration'
+                    selectedValue={selectedDuration}
+                    onSelectionChange={this._onSelectionChange('selectedDuration')}
+                    options={durationList} />
             </View>
 
-            <TouchableOpacity style={styles.touchable} onPress={this.onStartQuicClicked}>
+            <TouchableOpacity style={styles.touchable} onPress={onStartQuizClicked}>
                 <Text style={styles.touchableText} >Start a New Quiz</Text>
             </TouchableOpacity>
 
