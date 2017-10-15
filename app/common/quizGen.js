@@ -1,21 +1,25 @@
-const blackList = [100, 99, 98, 1, 0];
+
 const randomGen = () => {
+    const checkNumber = num => {
+        return num % 10 >= 5;
+    }
+    const min = 15, max = 49;
     let random;
     do {
-        random = Number((Math.random() * 100).toFixed());
-    } while (blackList.includes(random))
+        random = Number((Math.random() * (max - min) + min).toFixed());
+        debugger;
+    } while (!checkNumber(random))
+    debugger;
     return random;
 }
 const mathGen = () => {
-    const result = [];
-    Array.from({ length: 10 }, () => {
+    const results = [];
+    Array.from({ length: 20 }, () => {
         let random;
-        do {
-            random = randomGen();
-        } while (result.find(r => r[0] === random))
-        result.push([random, 99 - random]);
+        random = randomGen();
+        results.push(random);
     });
-    return result;
+    return Array.from({ length: 10 }, (e, i) => [results[i], results[10 + i]])
 }
 
 export { mathGen };
