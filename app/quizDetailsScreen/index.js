@@ -29,7 +29,7 @@ class QuizDetailsScreen extends React.Component {
           </View>)}
         </View>)
     } else {
-      return <Text style={styles.quizText}>fix the spelling mistakes</Text>
+      return <Text style={styles.quizText}>fix spelling mistakes</Text>
     }
   }
 
@@ -81,11 +81,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 30,
-    textAlign: 'center'  // why is this still required?????
   },
   quizText: {
     flex: 1,
     fontSize: 35,
+    textAlign: 'center'  // why is this still required?????
   }
 });
 
