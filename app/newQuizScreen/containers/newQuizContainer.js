@@ -10,8 +10,8 @@ class NewQuizContainer extends Component {
         if (Splash) {
             Splash.close({
                 animationType: Splash.animationType.fade,
-                duration: 300,
-                delay: 200,
+                duration: 1500,
+                delay: 3000,
             });
         }
     }

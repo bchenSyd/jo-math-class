@@ -1,11 +1,11 @@
 import { TabNavigator } from "react-navigation";
 
 import NewQuizContainer from './newQuizScreen';
-import QuizHistoryContainer from './quizHistoryScreen';
+import QuizResultsContainer from './quizResultsScreen';
 
 const IndexNavigator = TabNavigator({
     NewQuiz: { screen: NewQuizContainer },
-    QuizHistory: { screen: QuizHistoryContainer },
+    QuizResults: { screen: QuizResultsContainer },
 });
 
 export default IndexNavigator;

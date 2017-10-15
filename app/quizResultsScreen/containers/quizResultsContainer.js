@@ -7,12 +7,12 @@ import {
 } from 'react-native';
 import { color, fontSize } from '../../common/theme';
 
-import QuizHistoryScreen from '../components/quizHistoryScreen';
+import QuizResultsScreen from '../components/quizResultsScreen';
 
 
-class QuizHistoryContainer extends Component {
+class QuizResultsContainer extends Component {
     static navigationOptions = {
-        tabBarLabel: 'My Quiz',
+        tabBarLabel: 'Quiz Results',
     }
     componentDidMount() {
         // todo: fetch quiz history;
@@ -20,7 +20,7 @@ class QuizHistoryContainer extends Component {
     render() {
         const { isFetching } = this.props;
         return <View style={styles.main}>
-            <QuizHistoryScreen style={styles.content}
+            <QuizResultsScreen style={styles.content}
                 isFetching={isFetching} />
         </View>;
     }
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default QuizHistoryContainer;
+export default QuizResultsContainer;

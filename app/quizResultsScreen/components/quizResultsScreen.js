@@ -7,14 +7,14 @@ import {
 } from 'react-native';
 import React, { Component } from 'react';
 
-const QuizHistoryScreen = (props) => {
+const QuizResultsScreen = (props) => {
     const { isFetching } = props;
     return <View style={styles.main} >
-        <Text style={styles.title}>Quiz History</Text>
+        <Text style={styles.title}>Quiz Results</Text>
         <View style={styles.content}>
             {
                 isFetching ? <Text>loading...</Text>
-                        : <Text>quiz details here</Text>
+                        : <Text>quiz results goes here</Text>
             }
         </View>
     </View>;
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default QuizHistoryScreen;
+export default QuizResultsScreen;
