@@ -4,9 +4,10 @@ import {
     Text,
     Animated,
     Image,
-    Easing
+    Easing,
 } from 'react-native';
 import React, { Component } from 'react';
+
 const img_source = 'https://s3.amazonaws.com/media-p.slid.es/uploads/alexanderfarennikov/images/1198519/reactjs.png';
 
 
@@ -32,15 +33,15 @@ class AnimationScreen extends Component {
             {
                 toValue: 1,
                 duration: 4000,
-                easing: Easing.linear
-            }
-        ).start(() => this.spin())
+                easing: Easing.linear,
+            },
+        ).start(() => this.spin());
     }
 
     render() {
         const spin = this.spinValue.interpolate({
             inputRange: [0, 1],
-            outputRange: ['0deg', '360deg']
+            outputRange: ['0deg', '360deg'],
         });
 
         return <View style={styles.container}>
@@ -48,20 +49,19 @@ class AnimationScreen extends Component {
                 style={{
                     width: 227,
                     height: 200,
-                    transform: [{ rotate: spin }]
+                    transform: [{ rotate: spin }],
                 }}
                 source={{ uri: img_source }} />
-        </View>
+        </View>;
     }
-
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
-    }
-})
+        alignItems: 'center',
+    },
+});
 
 export default AnimationScreen;

@@ -2,10 +2,10 @@ import React from 'react';
 import {
   View,
   Text,
-  Button
+  Button,
 } from 'react-native';
 
-import {StackNavigator} from 'react-navigation';
+import { StackNavigator } from 'react-navigation';
 import IndexNavigator from './indexRoute';
 import QuizScreen from './quizDetails/quizScreen';
 import PlaygroundScreen from './playground';
@@ -13,22 +13,22 @@ import AnimationScreen from './playground/animation';
 
 const RouteNavigator = StackNavigator({
   Index: {
-    screen: IndexNavigator, //TabNavigatorScreen
+    screen: IndexNavigator, // TabNavigatorScreen
     navigationOptions: {
       title: `Joanna't Math Class`,
     },
   },
-  QuizDetails: {screen: QuizScreen},
+  QuizDetails: { screen: QuizScreen },
 
-  
-  Playground: {screen: PlaygroundScreen},
-  Animation: {screen: AnimationScreen}
+
+  Playground: { screen: PlaygroundScreen },
+  Animation: { screen: AnimationScreen },
 });
 
 
-class MainApp extends React.Component{
-  render(){
-      return <RouteNavigator />
+class MainApp extends React.Component {
+  render() {
+    return <RouteNavigator />;
   }
 }
 export default MainApp;

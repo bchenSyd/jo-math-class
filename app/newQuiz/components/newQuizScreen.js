@@ -11,34 +11,36 @@ import ItemPicker from '../../common/itemPicker';
 import { color, fontSize } from '../../common/theme';
 
 
-class SearchScreen extends Component{
-
-    _onSelectionChange = type => newVal => {
+class SearchScreen extends Component {
+    _onSelectionChange = type => (newVal) => {
         const { onSelectionChange } = this.props;
         onSelectionChange(type, newVal);
     }
 
+    onStartQuicClicked = e => {
+
+        this.props.startAQuiz();
+    }
     render() {
-        const { go2CarDetails, makeList, modelList, selectedMake,
-            selectedModel, onSelectionChange, searchButtonEnabled } = this.props;
+        const { curriculumList, levelList, selectedCurriculum, selectedLevel, startQuizEnabled } = this.props;
         return <View style={styles.base}>
             <View style={styles.content}>
-                <ItemPicker itemLabel='Make' selectedValue={selectedMake}
-                    onSelectionChange={this._onSelectionChange('make')}
-                    options={makeList} />
-                <ItemPicker itemLabel='Model'
-                    selectedValue={selectedModel}
-                    onSelectionChange={this._onSelectionChange('model')}
-                    options={modelList} />
+                <ItemPicker itemLabel='Curriculum' selectedValue={selectedCurriculum}
+                    onSelectionChange={this._onSelectionChange('curriculum')}
+                    options={curriculumList} />
+                <ItemPicker itemLabel='Level'
+                    selectedValue={selectedLevel}
+                    onSelectionChange={this._onSelectionChange('level')}
+                    options={levelList} />
             </View>
 
             <Button
-                disabled={!searchButtonEnabled}
-                onPress={e => go2CarDetails(selectedModel)}
-                title="Search"
+                disabled={!startQuizEnabled}
+                onPress={this.onStartQuicClicked}
+                title="Start a Quiz"
             />
 
-        </View>
+        </View>;
     }
 }
 
@@ -51,7 +53,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         flex: 1, // same as 100%
         alignItems: 'stretch',
-        marginBottom: 2
+        marginBottom: 2,
     },
     content: {
         padding: fontSize.large,
@@ -60,12 +62,12 @@ const styles = StyleSheet.create({
     searchItem: {
         height: 30,
         justifyContent: 'center',
-        fontSize: fontSize.default
+        fontSize: fontSize.default,
     },
     searchOptions: {
         width: 120,
         marginLeft: 10,
-    }
+    },
 });
 
 export default SearchScreen;

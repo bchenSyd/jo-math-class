@@ -7,7 +7,7 @@ const color = {
     sceneBg: '#F4F4F4',
     splashBg: '#2B2828',
     yellow: '#FFC979',
-  
+
     // neutrals
     gray90: '#1A1A1A',
     gray80: '#333',
@@ -23,7 +23,7 @@ const color = {
     gray10: '#E5E5E5',
     gray05: '#F2F2F2',
   };
-  
+
   // font sizes
   const fontSize = {
     xsmall: 12,
@@ -38,4 +38,3 @@ const color = {
     color,
     fontSize,
   };
-  

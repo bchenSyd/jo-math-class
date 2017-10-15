@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import SearchScreen from '../components/searchScreen';
+import NewQuizScreen from '../components/newQuizScreen';
 import Splash from 'react-native-smart-splash-screen';
 
 class NewQuizContainer extends Component {
-    static navigationOptions  = {
+    static navigationOptions = {
         tabBarLabel: 'Start a new Quiz',
     }
     componentDidMount() {
@@ -18,7 +17,7 @@ class NewQuizContainer extends Component {
     }
 
     constructor() {
-        super()
+        super();
         this.state = {
             curriculumList: [{
                 id: -1,
@@ -41,12 +40,12 @@ class NewQuizContainer extends Component {
             selectedLevel: -1,
 
             startQuizEnabled: false,
-        }
+        };
     }
 
-    go2CarDetails = selectedModel => {
+    startAQuiz = newQuizConf => {
         const { navigate } = this.props.navigation;
-        navigate('CarDetails', { modelId: selectedModel });
+        navigate('CarDetails', { modelId: newQuizConf });
     }
 
     onSelectionChange = (type, newVal) => {
@@ -84,24 +83,24 @@ class NewQuizContainer extends Component {
                     startQuizEnabled: false,
                 });
             }
-        } else { //change level
+        } else { // change level
             const levelId = newVal;
             this.setState({
                 selectedLevel: levelId,
                 startQuizEnabled: levelId !== -1,
-            })
+            });
         }
     }
 
     render() {
-        const { curriculumList, levelList, selectedCurriculum, selectedLevel } = this.state;
-        return <SearchScreen makeList={makeList}
-            modelList={modelList}
-            selectedMake={selectedMake}
-            selectedModel={selectedModel}
+        const { curriculumList, levelList, selectedCurriculum, selectedLevel, startQuizEnabled } = this.state;
+        return <NewQuizScreen curriculumList={curriculumList}
+            levelList={levelList}
+            selectedCurriculum={selectedCurriculum}
+            selectedLevel={selectedLevel}
             onSelectionChange={this.onSelectionChange}
-            searchButtonEnabled={searchButtonEnabled}
-            go2CarDetails={this.go2CarDetails} />
+            startQuizEnabled={startQuizEnabled}
+            startAQuiz={this.startAQuiz} />;
     }
 }
 

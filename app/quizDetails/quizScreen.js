@@ -18,16 +18,16 @@ class QuizDetailsScreen extends React.Component {
     super();
     this.state = {
       model: null,
-    }
+    };
   }
   componentDidMount() {
     const { params } = this.props.navigation.state;
     callAPI(`/models/${params.modelId}`)
-      .then(res => {
+      .then((res) => {
         this.setState({
           model: res.model,
         });
-      })
+      });
   }
 
   render() {
@@ -40,21 +40,21 @@ class QuizDetailsScreen extends React.Component {
         <View style={styles.content}>
           {
             model ? <View style={styles.carDetails}>
-              <View style={ [styles.item, {flex:4}]}>
+              <View style={ [styles.item, { flex: 4 }]}>
                 <Image style={styles.image} source={{ uri: model.imageUrl }}
                   resizeMode="contain" />
               </View>
               <View style={styles.item}>
                 <Text>Make Name</Text>
-                <TextInput value={model.makeName}  editable={false}/>
+                <TextInput value={model.makeName} editable={false}/>
               </View>
               <View style={styles.item}>
                 <Text>Model name</Text>
-                <TextInput value={model.name}  editable={false}/>
+                <TextInput value={model.name} editable={false}/>
               </View>
               <View style={styles.item}>
                 <Text>Price guide</Text>
-                <TextInput value={'$' + model.price} editable={false}/>
+                <TextInput value={`$${model.price}`} editable={false}/>
               </View>
             </View>
               : <Text>loading car details... </Text>
@@ -67,24 +67,24 @@ class QuizDetailsScreen extends React.Component {
 
 const styles = StyleSheet.create({
   main: {
-    flex:1, // if you delete this line, everything gets squashed into one line
-    justifyContent:'center'
+    flex: 1, // if you delete this line, everything gets squashed into one line
+    justifyContent: 'center',
   },
   title: {
-    flex:1,
-    flexDirection:'column', // default to 'column'
-    justifyContent:'center',  // column: veritcal alighment  ; row: horizental alignment
-    alignItems:'center' ,     // column: horizental alignment; row: vertical alignment
+    flex: 1,
+    flexDirection: 'column', // default to 'column'
+    justifyContent: 'center', // column: veritcal alighment  ; row: horizental alignment
+    alignItems: 'center', // column: horizental alignment; row: vertical alignment
   },
-  titleTxt:{
+  titleTxt: {
     fontSize: 30,
     fontWeight: 'bold',
   },
   content: {
-    flex:5,
+    flex: 5,
   },
   carDetails: {
-    flex:1, // if you see everything squashed into a blob, that means the container doesn't have height set;
+    flex: 1, // if you see everything squashed into a blob, that means the container doesn't have height set;
     flexDirection: 'column',
   },
   item: {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
   },
-})
+});
 
 
 export default QuizDetailsScreen;

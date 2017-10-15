@@ -1,0 +1,34 @@
+{
+    "env": {
+      "browser": true, // fetch will be recognized
+      "node": true,
+      "es6": true,
+      "jest/globals": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": false,
+      "codeFrame": false
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "plugins": [
+      "react",
+      "react-native",
+      "import",
+      "jest"
+    ],
+    "rules": {
+      "quotes": "off",
+      "no-console": "off",
+      "no-debugger": "off",
+      "no-unused-vars":"warn",
+      "indent": ["off", 4],
+      "react/prop-types": "off"
+    }
+  }
