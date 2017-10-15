@@ -7,9 +7,7 @@ import {
 
 import { StackNavigator } from 'react-navigation';
 import IndexNavigator from './indexRoute';
-import QuizScreen from './quizDetails/quizScreen';
-import PlaygroundScreen from './playground';
-import AnimationScreen from './playground/animation';
+import QuizScreen from './quizDetailsScreen';
 
 const RouteNavigator = StackNavigator({
   Index: {
@@ -18,11 +16,7 @@ const RouteNavigator = StackNavigator({
       title: `Joanna't Math Class`,
     },
   },
-  QuizDetails: { screen: QuizScreen },
-
-
-  Playground: { screen: PlaygroundScreen },
-  Animation: { screen: AnimationScreen },
+  QuizDetails: { screen: QuizScreen }
 });
 
 

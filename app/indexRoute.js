@@ -1,8 +1,7 @@
-import React from 'react';
 import { TabNavigator } from "react-navigation";
 
-import NewQuizContainer from './newQuiz';
-import QuizHistoryContainer from './quizHistory';
+import NewQuizContainer from './newQuizScreen';
+import QuizHistoryContainer from './quizHistoryScreen';
 
 const IndexNavigator = TabNavigator({
     NewQuiz: { screen: NewQuizContainer },

@@ -50,9 +50,15 @@ class NewQuizContainer extends Component {
         };
     }
 
-    startAQuiz = newQuizConf => {
+    startAQuiz = () => {
         const { navigate } = this.props.navigation;
-        navigate('CarDetails', { modelId: newQuizConf });
+        const { selectedCurriculum, selectedLevel } = this.state;
+        navigate('QuizDetails', {
+            config: {
+                curriculum: selectedCurriculum,
+                level: selectedLevel
+            }
+        });
     }
 
     onSelectionChange = (type, newVal) => {
@@ -60,7 +66,7 @@ class NewQuizContainer extends Component {
             const curriculumId = newVal;
             this.setState({
                 selectedCurriculum: curriculumId,
-                selectedLevel:0, //mixed by defult;
+                selectedLevel: 0, //mixed by defult;
             });
         } else { // change level
             const levelId = newVal;
