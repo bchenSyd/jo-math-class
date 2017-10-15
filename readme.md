@@ -1,3 +1,6 @@
+<img src="https://github.com/bochen2014/jo-math-class/blob/master/screen-shots/0%20splash-screen.png?raw=true" width="200"/>
+<img src="https://github.com/bochen2014/jo-math-class/blob/master/screen-shots/1%20new-quiz.png?raw=true" width="200" />
+
 ## react-native
 1. build apk
  * place `bo-chen.keystore` under `android\app\bo-chen.keystore`
