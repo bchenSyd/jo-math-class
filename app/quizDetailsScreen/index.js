@@ -15,29 +15,33 @@ class QuizDetailsScreen extends React.Component {
     title: 'start quiz',
   };
 
-  render() {
+  genQuiz = () => {
     const { config: { curriculum, level, duration } } = this.props.navigation.state.params;
-    const quiz = mathGen()
+    if (curriculum === 0) { //math
+      const quiz = mathGen();
+      return [0, 1].map(i =>
+        <View style={styles.half} key={`group_${i}`}>
+          {quiz.slice(5 * i, 5 * (i + 1)).map((q, index) => <View style={styles.quizRow} key={`quiz_${index}`}>
+            <Text style={[styles.quizText, { flex: 3 }]}>{q[0]}</Text>
+            <Text style={styles.quizText}>+</Text>
+            <Text style={[styles.quizText, { flex: 3 }]}>{q[1]}</Text>
+            <Text style={styles.quizText}>=</Text>
+          </View>)}
+        </View>)
+    } else {
+      return <Text style={styles.quizText}>fix the spelling mistakes</Text>
+    }
+  }
+
+  render() {
     return (
       <View style={styles.main}>
         <View style={styles.title}>
           <Text style={styles.titleTxt}>Anwser the questions below</Text>
         </View>
         <View style={styles.content}>
-          {
-            [0, 1].map(i =>
-              <View style={styles.half} key={`group_${i}`}>
-                {quiz.slice(5 * i, 5 * (i + 1)).map((q, index) => <View style={styles.quizRow} key={`quiz_${index}`}>
-                  <Text style={styles.quizText}>{q[0]}</Text>
-                  <Text style={styles.quizText}>+</Text>
-                  <Text style={styles.quizText}>{q[1]}</Text>
-                  <Text style={styles.quizText}>=</Text>
-                </View>)}
-              </View>
-            )
-          }
+          {this.genQuiz()}
         </View>
-
       </View>
     );
   }
@@ -46,14 +50,14 @@ class QuizDetailsScreen extends React.Component {
 const styles = StyleSheet.create({
   main: {
     flex: 1, // if you delete this line, everything gets squashed into one line
-    flexDirection:"column",
+    flexDirection: "column",
     justifyContent: 'center',
   },
   title: {
     flex: 1,
-    flexDirection:'column',
-    justifyContent:'center',//veritical
-    alignItems:'center', //horizental
+    flexDirection: 'column',
+    justifyContent: 'center',//veritical
+    alignItems: 'center', //horizental
     backgroundColor: color.blue,
   },
   titleTxt: {
@@ -72,16 +76,16 @@ const styles = StyleSheet.create({
     padding: fontSize.small,
   },
   quizRow: {
-    flex:1,
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 30,
+    textAlign: 'center'  // why is this still required?????
   },
   quizText: {
-    flex:1,
+    flex: 1,
     fontSize: 35,
-    marginBottom: 30,
-    textAlign:'center'  // why is this still required?????
   }
 });
 
